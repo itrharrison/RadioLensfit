@@ -101,6 +101,19 @@ int main(int argc, char *argv[])
     double SEFD_SKA = 400e+6;    // System Equivalent Flux Density (in micro-Jy) of each SKA1 antenna
     double SEFD_MKT = 551e+6; // SEFD of each MeerKat antenna (in micro-Jy)
     
+    // Create experiment parameters struct
+    experiment_params experiment;
+    experiment.num_stations = num_stations;
+    experiment.num_channels = num_channels;
+    experiment.num_times = num_times;
+    experiment.freq_start_hz = freq_start_hz;
+    experiment.channel_bandwidth_hz = channel_bandwidth_hz;
+    experiment.ref_frequency_hz = ref_frequency_hz;
+    experiment.time_acc = time_acc;
+    experiment.filename_u = filename_u;
+    experiment.filename_v = filename_v;
+
+    
     unsigned int num_baselines = num_stations * (num_stations - 1) / 2;
     if (rank==0)
     {
@@ -126,6 +139,7 @@ int main(int argc, char *argv[])
     totGbytes += sizeGbytes;
     
     double len, threshold = 0.; //only uv-points above this threshold [metres] will be used
+    experiment.threshold = threshold;
     // read only the baselines above the threshold and update their number
     double maxB = read_coord_ska(argv[1], argv[2], num_times, &num_baselines, uu_metres, vv_metres, threshold, &len);
     num_coords = num_times * num_baselines;

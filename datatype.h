@@ -41,6 +41,19 @@
 #endif
 
 typedef struct{
+    unsigned int num_stations;
+    unsigned int num_channels;
+    unsigned int num_times;
+    double freq_start_hz;
+    double channel_bandwidth_hz;
+    double ref_frequency_hz;
+    int time_acc;
+    double threshold;
+    const char* filename_u;
+    const char* filename_v;
+} experiment_params;
+
+typedef struct{
     double real;
     double imag;
 } complexd;
