@@ -22,9 +22,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "read_coordinates.h"
+#include "datatype.h"
 
- #ifdef __cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 

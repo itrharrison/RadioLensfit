@@ -100,6 +100,8 @@ int main(int argc, char *argv[])
     double efficiency = 0.9;     // system efficiency
     double SEFD_SKA = 400e+6;    // System Equivalent Flux Density (in micro-Jy) of each SKA1 antenna
     double SEFD_MKT = 551e+6; // SEFD of each MeerKat antenna (in micro-Jy)
+    const char* filename_u = argv[1];
+    const char* filename_v = argv[2];
     
     // Create experiment parameters struct
     experiment_params experiment;
